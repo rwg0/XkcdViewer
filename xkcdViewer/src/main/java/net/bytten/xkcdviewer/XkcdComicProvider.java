@@ -68,7 +68,7 @@ public class XkcdComicProvider implements IComicProvider {
     @Override
     public Uri fetchRandomComicUrl() throws Exception {
         HttpURLConnection http = (HttpURLConnection) new URL("https",
-                "dynamic.xkcd.com", "/random/comic").openConnection();
+                "c.xkcd.com", "/random/comic").openConnection();
         http.setInstanceFollowRedirects(false);
         String redirect = http.getHeaderField("Location");
         if (redirect != null) {
