@@ -43,13 +43,13 @@ public class XkcdComicProvider implements IComicProvider {
 
     @Override
     public Uri createComicUrl(String comicId) {
-        return Uri.parse("http://xkcd.com/"+comicId+"/info.0.json");
+        return Uri.parse("https://xkcd.com/"+comicId+"/info.0.json");
     }
 
     @Override
     public IComicInfo fetchComicInfo(Uri url) throws Exception {
         // Uses xkcd's JSON interface
-        //      (http://xkcd.com/json.html) 
+        //      (https://xkcd.com/json.html)
         String text = Utility.blockingReadUri(url);
         JSONObject obj = (JSONObject)new JSONTokener(text).nextValue();
         Log.d("json", obj.names().toString());
@@ -91,7 +91,7 @@ public class XkcdComicProvider implements IComicProvider {
 
     @Override
     public Uri getFinalComicUrl() {
-        return Uri.parse("http://xkcd.com/info.0.json");
+        return Uri.parse("https://xkcd.com/info.0.json");
     }
 
     @Override
